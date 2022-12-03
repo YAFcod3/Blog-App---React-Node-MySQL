@@ -1,13 +1,35 @@
-import { Link } from "react-router-dom";
-
-
-
+import { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import axios from "axios";
 
 const Home = () => {
 
 
+  const location =useLocation()
+  console.log(location)
+  const cat =location.search
 
- const posts = [
+
+
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+
+    const fetcData = async () => {
+      try {
+        const res = await axios.get(`http://localhost:8800/api/posts/${cat}`);
+        console.log(res.data);
+        setPosts(res.data)
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+
+    fetcData()
+  }, [cat]);
+
+  /*const posts = [
      {
        id: 1,
        title: "Lorem ipsum dolor sit amet consectetur adipisicing elit",
@@ -32,7 +54,11 @@ const Home = () => {
        desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. A possimus excepturi aliquid nihil cumque ipsam facere aperiam at! Ea dolorem ratione sit debitis deserunt repellendus numquam ab vel perspiciatis corporis!",
        img: "https:images.pexels.com/photos/6157049/pexels-photo-6157049.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
      },
-   ];
+   ];*/
+
+
+
+
 
 
 
@@ -41,24 +67,20 @@ const Home = () => {
     <>
       <div className="home">
         <div className="posts">
-
-          {posts.map((post)=>(
+          {posts.map((post) => (
             <div className="post" key={post.id}>
               <div className="img">
                 <img src={post.img} alt="" />
               </div>
               <div className="content">
-
                 <Link className="link" to={`/post/${post.id}`}>
                   <h1>{post.title}</h1>
                 </Link>
                 <p>{post.desc}</p>
                 <button>Read more</button>
               </div>
-
             </div>
           ))}
-          
         </div>
       </div>
     </>
