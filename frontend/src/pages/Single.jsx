@@ -9,20 +9,26 @@ const Single = () => {
       <div className="single">
         {/*content */}
         <div className="content">
+
+
           <img
             src="https://images.pexels.com/photos/7356598/pexels-photo-7356598.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
             alt="imageContent"
           />
 
           <div className="user">
+
             <img
               src="https://images.pexels.com/photos/1933873/pexels-photo-1933873.jpeg?auto=compress&cs=tinysrgb&w=600"
               alt="userImage"
             />
+
             <div className="info">
               <span>John</span>
               <p>Posted 2 days ago</p>
             </div>
+
+
             <div className="edit">
               <Link to={`/write?edit=2`}>
                 {" "}
@@ -30,7 +36,12 @@ const Single = () => {
               </Link>
               <img src={Delete} alt="" />
             </div>
+
+
           </div>
+
+
+          
           <h1>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit.
             Consectetur, quasi accusamus recusandae harum placeat officiis

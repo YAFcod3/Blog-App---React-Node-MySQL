@@ -2,15 +2,33 @@ import { useState } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 
+
+
+
+
+
+
 const Write = () => {
+
+
   const [value, setValue] = useState("");
   //console.log(value)
+
+
+
+
+
+
   return (
     <>
       <div className="add">
+
+
         {/*Content */}
         <div className="content">
+
           <input type="text" placeholder="title" />
+
           <div className="editorContainer">
             <ReactQuill
               className="editor"
@@ -20,8 +38,12 @@ const Write = () => {
             />
           </div>
         </div>
+
+
+
         {/**Menu */}
         <div className="menu">
+
           <div className="item">
             <h1>Publish</h1>
             <span>
@@ -39,6 +61,9 @@ const Write = () => {
               <button>Update</button>
             </div>
           </div>
+
+
+
           <div className="item">
             <h1>Category</h1>
             <div className="cat">
@@ -78,7 +103,15 @@ const Write = () => {
               <label htmlFor="art">Food </label>
             </div>
           </div>
+
         </div>
+
+
+
+
+
+
+
       </div>
     </>
   );
